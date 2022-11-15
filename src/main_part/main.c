@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:37:40 by lter-zak          #+#    #+#             */
-/*   Updated: 2022/11/12 12:30:34 by lter-zak         ###   ########.fr       */
+/*   Updated: 2022/11/15 13:51:49 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	main(int arg_nb, char **arg_str)
 		initialize(philo_gen, arg_str, arg_nb);
 		if (init_params(philo_gen))
 			error("INIT_PARAMS_ERROR");
-			///////
 	}
 	else
 		error("main_ERROR");

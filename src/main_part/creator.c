@@ -6,15 +6,54 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:36:56 by lter-zak          #+#    #+#             */
-/*   Updated: 2022/11/12 14:04:24 by lter-zak         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:12:41 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-int	create_mutex(t_philo_gen *philo_gen)
+int	go_take_fork(t_philo )
+{
+	//pthread_mutex_lock
+	got_eat();
+	//pthread_mutex_unalock
+}
+
+void *ft_thread_hendler(void *philo)
+{
+	t_philo_gen *philo_gen;
+	t_philo		*philo;
+	
+	philo_gen =(t_philo*)philo;
+	while (1)
+	{
+		go_take_fork();
+		go_to_sleep();
+		
+	}
+	return(0);
+}
+
+int	create_philo(t_philo *philo, int philo_num)
+{
+	int i;
+
+	i = 0;
+	while (i < philo_num)
+	{
+		philo[i].ph_time = ft_time();
+		if (!(pthread_create(&(philo[i].tr_id), NULL,ft_thread_hendler, ((void *)&philo[i]))))
+				i++;
+		else
+			return (1);
+	}
+	return (0);
+}
+
+int	create_mutex(t_philo_gen	*philo_gen)
 {
 	int	index;
+
 	index = 0;
 	philo_gen->forks = malloc(sizeof(pthread_mutex_t) * philo_gen->philo_num);
 	while (index < philo_gen->philo_num)
@@ -61,10 +100,9 @@ int	init_params(t_philo_gen *philo_gen)
 		return (1);
 	if (init_philo(philo_gen))
 		return (1);
-	// if (create_philo(philo_gen))
-	// 	return (1);
+	if (create_philo(philo_gen->philo, philo_gen->philo_num))
+		return (1);
 		philo_gen->start_time = ft_time();
-		printf("st_time = %lld", philo_gen->start_time);
 	return (0);
 }
 	
