@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 19:34:02 by lter-zak          #+#    #+#             */
-/*   Updated: 2022/11/11 18:34:38 by lter-zak         ###   ########.fr       */
+/*   Updated: 2022/11/18 15:16:42 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	initialize(t_philo_gen *philo_arg, char **argv, int argc)
 	philo_arg->time_eat = ft_atoi(argv[3]);
 	philo_arg->time_sleep = ft_atoi(argv[4]);
 	philo_arg->philo_must_eat = 0;
+	philo_arg->check_die = 0;
+	philo_arg->start_time = 0;
 	if (argc == 6)
 		philo_arg->philo_must_eat = ft_atoi(argv[5]);
 }

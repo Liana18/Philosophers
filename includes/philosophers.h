@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 19:30:44 by lter-zak          #+#    #+#             */
-/*   Updated: 2022/11/17 18:21:03 by lter-zak         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:06:07 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,12 @@ struct s_philo
 	int			left_fork;
 	int			right_fork;
 	int			p_num;
-	int			t_die;
-	int			t_sleep;
-	int			t_eat;
+	int			time_die;
+	int			time_sleep;
+	int			time_eat;
 	int			ph_must_eat;
-	long long	ph_time;
+	long long	born_time;
+	long long	fix_time;
 	pthread_t	tr_id;
 };
 
@@ -44,11 +45,14 @@ struct s_philo_gen
 	int				time_sleep;
 	int				time_eat;
 	int				philo_must_eat;
+	int				check_die;
 	long long int	start_time;
+	pthread_mutex_t	eating;
 	pthread_mutex_t	*forks;
 	t_philo			*philo;
 };
 
+int					check_die(t_philo_gen *philo_gen, t_philo *philo);
 void				initialize(t_philo_gen *philo_arg, char **argv, int argc);
 int					check_arg(char **arg_str);
 int					ft_strlen(char *str);
