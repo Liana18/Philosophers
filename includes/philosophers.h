@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 19:30:44 by lter-zak          #+#    #+#             */
-/*   Updated: 2022/11/15 13:56:01 by lter-zak         ###   ########.fr       */
+/*   Updated: 2022/11/17 18:21:03 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_philo_gen	t_philo_gen;
 
 struct s_philo
 {
+	t_philo_gen	*philo_gen;
 	int			id;
 	int			left_fork;
 	int			right_fork;
@@ -34,7 +35,6 @@ struct s_philo
 	int			ph_must_eat;
 	long long	ph_time;
 	pthread_t	tr_id;
-	t_philo_gen	philo_gen;
 };
 
 struct s_philo_gen
