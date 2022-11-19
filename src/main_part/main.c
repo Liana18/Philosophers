@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:37:40 by lter-zak          #+#    #+#             */
-/*   Updated: 2022/11/15 13:51:49 by lter-zak         ###   ########.fr       */
+/*   Updated: 2022/11/19 12:44:52 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ int	main(int arg_nb, char **arg_str)
 	}
 	else
 		error("main_ERROR");
+	//pause();
 	return (0);
 }

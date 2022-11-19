@@ -3,7 +3,7 @@ BLUE = '\x1b[36m'
 YELLOW= '\x1b[32m'
 MAGENTA ='\x1b[35m'
 
-NAME		= philosophers
+NAME		= philo
 SRCS		= $(wildcard src/*/*.c)
 SRCS		+= $(wildcard src/*.c)
 OBJS		= $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 19:30:44 by lter-zak          #+#    #+#             */
-/*   Updated: 2022/11/18 14:06:07 by lter-zak         ###   ########.fr       */
+/*   Updated: 2022/11/19 13:58:27 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,13 @@ struct s_philo_gen
 	t_philo			*philo;
 };
 
-int					check_die(t_philo_gen *philo_gen, t_philo *philo);
+void					check_die(t_philo_gen *philo_gen, t_philo *philo);
 void				initialize(t_philo_gen *philo_arg, char **argv, int argc);
 int					check_arg(char **arg_str);
 int					ft_strlen(char *str);
 int					ft_atoi(char *str);
 int					error(char *str);
 int					init_params(t_philo_gen *philo_gen);
+void				ft_usleep(unsigned long long tm);
 unsigned long long	ft_time(void);
 #endif
