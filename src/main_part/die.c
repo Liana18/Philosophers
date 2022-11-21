@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 13:09:39 by lter-zak          #+#    #+#             */
-/*   Updated: 2022/11/19 14:12:36 by lter-zak         ###   ########.fr       */
+/*   Updated: 2022/11/20 18:10:56 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,12 @@ void	check_die(t_philo_gen *philo_gen, t_philo *philo)
 		i = 0;
 		while (i < philo_gen->philo_num && !(philo_gen->check_die))
 		{
-			printf("ft_time == %lld \n fix_time == %lld \n", ft_time(), philo[i].fix_time);
+		//	printf("ft_time == %lld \n fix_time == %lld \n", ft_time(), philo[i].fix_time);
 			if (ft_time() - philo[i].fix_time > die_time)
 			{
-				printf("time -> %lld ,%d has DIED\n",
-					ft_time() - philo_gen->start_time, philo->id);
+				//printf("time -> %lld ,%d has DIED\n",
+					//ft_time() - philo_gen->start_time, philo->id);
+				ft_printf("has DIED", philo->id, philo_gen);
 				philo_gen->check_die = 1;
 			}
 			i++;

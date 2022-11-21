@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 15:16:52 by lter-zak          #+#    #+#             */
-/*   Updated: 2022/11/12 12:36:41 by lter-zak         ###   ########.fr       */
+/*   Updated: 2022/11/20 18:20:31 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,24 @@ int	ft_atoi(char *str)
 		i++;
 	}
 	return (num * min);
+}
+
+int	ft_printf(char *str, int id, t_philo_gen *philo_gen)
+{
+	pthread_mutex_lock(&philo_gen->smt);
+	if (philo_gen->check_die)
+	{
+		printf("%lld ,", ft_time() - philo_gen->start_time);
+		printf("%d ,", id);
+		printf("%s\n", str);
+	}
+	else
+		{
+			printf("%lld ,", ft_time() - philo_gen->start_time);
+			printf("%d -> ", id);
+			printf("%s\n", str);
+			return (0);
+		}
+	pthread_mutex_lock(&philo_gen->smt);
+	return (0);
 }
