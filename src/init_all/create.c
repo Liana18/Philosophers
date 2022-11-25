@@ -86,5 +86,18 @@ int	init_all(t_philo_gen *philo_gen)
 		return (1);
 	if (create_philo(philo_gen))
 		return (1);
+	//the_end(philo_gen);
 	return (0);
+}
+
+void the_end(t_philo_gen *philo_gen)
+{
+	int	i;
+
+	i = 0;
+	while (i < philo_gen->num_of_philo)
+	{
+		pthread_mutex_destroy(&philo_gen->forks_gen[i]);
+	}
+		pthread_mutex_destroy(philo_gen->write);
 }

@@ -8,7 +8,7 @@ SRCS		= $(wildcard src/*/*.c)
 SRCS		+= $(wildcard src/*.c)
 OBJS		= $(SRCS:.c=.o)
 INCLUDES	= ./includes
-CFLAGS		= -Wall -Wextra -Werror #-fsanitize=address
+CFLAGS		= -Wall -Wextra -Werror -pthread#-fsanitize=address
 RM			= rm -f
 CC			= cc
 
@@ -20,7 +20,7 @@ all: $(NAME)
 
 $(NAME) : $(OBJS)
 		@echo $(NONE)$(BLUE) "\n\t\t🤹 Compiling $(NAME)... \n" $(NONE)
-		$(CC) $(CFLAGS) -I $(INCLUDES) $(OBJS) -o $(NAME)
+		$(CC) $(CFLAGS) -I $(INCLUDES)  $(OBJS) -o $(NAME)
 		@echo $(NONE)$(BLUE)"\n\t\t😱 Compiled   $(NAME)\n"$(NONE)
 
 clean	:

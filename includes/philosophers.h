@@ -37,7 +37,6 @@ struct s_philo_gen
 	t_philo			*philo;
 	pthread_t		*thread_id;
 	pthread_mutex_t	*write;
-	pthread_mutex_t	eating;
 	pthread_mutex_t	*forks_gen;
 };
 

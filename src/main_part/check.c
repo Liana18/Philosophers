@@ -4,20 +4,17 @@
 int check_eat(t_philo_gen *philo_gen)
 {
 	int	i;
-	int	count;
 
 	i = 0;
-	count = 0;
+	if (philo_gen->philo_must_eat == 0)
+		return (0);
 	while (i < philo_gen->num_of_philo)
 	{
-		if (philo_gen->philo[i].philo_must_eat >= philo_gen->philo_must_eat)
-			count++;
+		if (philo_gen->philo[i].philo_must_eat <= philo_gen->philo_must_eat)
+			return (0) ;
 		i++;
 	}
-		//printf("smt == %d\n", philo_gen->philo[i].philo_must_eat);
-	if (count + 1 == philo_gen->num_of_philo)
-		return (1);
-	return (0);
+	return (1);
 }
 
 int	check_die(t_philo_gen *philo_gen, t_philo *philo)
@@ -30,7 +27,7 @@ int	check_die(t_philo_gen *philo_gen, t_philo *philo)
 		i = 0;
 		if (check_eat(philo_gen))
 		{
-			printf("OK\n");
+			ft_printf("OK\n", philo);
 			return (0);
 		}
 		while (i < philo_gen->num_of_philo)
