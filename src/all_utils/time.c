@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 19:26:36 by lter-zak          #+#    #+#             */
-/*   Updated: 2022/11/26 19:33:19 by lter-zak         ###   ########.fr       */
+/*   Updated: 2022/11/26 20:26:46 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ void	ft_usleep(long long tm)
 	long long	time;
 
 	time = ft_time();
-	while (ft_time() - time <= tm)
+	while (ft_time() - time <= tm - 1)
 		usleep (100);
 }
