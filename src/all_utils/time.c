@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   time.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/26 19:26:36 by lter-zak          #+#    #+#             */
+/*   Updated: 2022/11/26 19:33:19 by lter-zak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philosophers.h"
 
 long long	ft_time(void)
@@ -10,11 +22,11 @@ long long	ft_time(void)
 	return (ms);
 }
 
-void ft_usleep(long long tm)
+void	ft_usleep(long long tm)
 {
-	long long time;
+	long long	time;
 
 	time = ft_time();
 	while (ft_time() - time <= tm)
-			usleep (100);
+		usleep (100);
 }

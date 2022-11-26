@@ -1,20 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/26 19:32:36 by lter-zak          #+#    #+#             */
+/*   Updated: 2022/11/26 20:10:19 by lter-zak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "philosophers.h"
 
-int check_eat(t_philo_gen *philo_gen)
+int	check_eat(t_philo_gen *philo_gen)
 {
+	int	count;
 	int	i;
 
 	i = 0;
-	if (philo_gen->philo_must_eat == 0)
-		return (0);
+	count = 0;
 	while (i < philo_gen->num_of_philo)
 	{
-		if (philo_gen->philo[i].philo_must_eat <= philo_gen->philo_must_eat)
-			return (0) ;
+		if (philo_gen->philo[i].philo_must_eat >= philo_gen->philo_must_eat)
+			count++;
 		i++;
 	}
-	return (1);
+	return (count);
 }
 
 int	check_die(t_philo_gen *philo_gen, t_philo *philo)
@@ -25,7 +36,7 @@ int	check_die(t_philo_gen *philo_gen, t_philo *philo)
 	while (1)
 	{
 		i = 0;
-		if (check_eat(philo_gen))
+		if (check_eat(philo_gen) == philo_gen->num_of_philo - 1)
 		{
 			ft_printf("OK\n", philo);
 			return (0);
@@ -34,7 +45,7 @@ int	check_die(t_philo_gen *philo_gen, t_philo *philo)
 		{
 			if (ft_time() - philo[i].fix_time > philo_gen->time_to_die)
 			{
-				ft_printf("has DIED", &philo_gen->philo[i]);
+				ft_printf("☠︎ has DIED ☠︎", &philo_gen->philo[i]);
 				return (1);
 			}
 			i++;

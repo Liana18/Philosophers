@@ -1,21 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   create.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/26 19:27:06 by lter-zak          #+#    #+#             */
+/*   Updated: 2022/11/26 19:46:16 by lter-zak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philosophers.h"
-
-
-void	*ft_thread_hendler(void *ph)
-{
-	t_philo	*philo;
-
-	philo = (t_philo *)ph;
-	philo->fix_time = ft_time();
-	if (philo->id % 2==0)
-		ft_usleep(philo->time_to_eat);
-	while(1)
-	{
-		go_to_eat(philo);
-		go_to_sleep(philo);
-		ft_printf("is thinking", philo);
-	}
-}
 
 int	create_philo(t_philo_gen	*philo_gen)
 {
@@ -36,7 +31,7 @@ int	create_philo(t_philo_gen	*philo_gen)
 
 int	init_philo(t_philo_gen *philo_gen)
 {
-	int index;
+	int	index;
 
 	index = 0;
 	philo_gen->philo = malloc(sizeof(t_philo) * philo_gen->num_of_philo);
@@ -45,7 +40,8 @@ int	init_philo(t_philo_gen *philo_gen)
 	while (index < philo_gen->num_of_philo)
 	{
 		philo_gen->philo[index].id = index;
-		philo_gen->philo[index].right_fork = (index + 1) % philo_gen->num_of_philo;
+		philo_gen->philo[index].right_fork = (index + 1)
+			% philo_gen->num_of_philo;
 		philo_gen->philo[index].left_fork = index;
 		philo_gen->philo[index].philo_forks = philo_gen->forks_gen;
 		philo_gen->philo[index].time_to_eat = philo_gen->time_to_eat;
@@ -65,7 +61,8 @@ int	create_mutex(t_philo_gen	*philo_gen)
 
 	index = 0;
 	philo_gen->write = malloc(sizeof(pthread_mutex_t));
-	philo_gen->forks_gen = malloc(sizeof(pthread_mutex_t) * philo_gen->num_of_philo);
+	philo_gen->forks_gen = malloc(sizeof(pthread_mutex_t)
+			* philo_gen->num_of_philo);
 	if (!(philo_gen->forks_gen))
 		return (1);
 	pthread_mutex_init(philo_gen->write, NULL);
@@ -86,18 +83,6 @@ int	init_all(t_philo_gen *philo_gen)
 		return (1);
 	if (create_philo(philo_gen))
 		return (1);
-	//the_end(philo_gen);
+	the_end(philo_gen);
 	return (0);
-}
-
-void the_end(t_philo_gen *philo_gen)
-{
-	int	i;
-
-	i = 0;
-	while (i < philo_gen->num_of_philo)
-	{
-		pthread_mutex_destroy(&philo_gen->forks_gen[i]);
-	}
-		pthread_mutex_destroy(philo_gen->write);
 }
