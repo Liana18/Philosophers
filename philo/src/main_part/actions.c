@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 19:27:47 by lter-zak          #+#    #+#             */
-/*   Updated: 2022/11/26 20:25:49 by lter-zak         ###   ########.fr       */
+/*   Updated: 2022/11/28 18:41:12 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,7 @@ void	the_end(t_philo_gen *philo_gen)
 	while (i < philo_gen->num_of_philo)
 		pthread_mutex_destroy(&philo_gen->forks_gen[i++]);
 	pthread_mutex_destroy(philo_gen->write);
+	free(philo_gen->philo);
+	free(philo_gen->write);
+	free(philo_gen);
 }

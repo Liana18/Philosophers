@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 19:33:53 by lter-zak          #+#    #+#             */
-/*   Updated: 2022/11/26 19:35:00 by lter-zak         ###   ########.fr       */
+/*   Updated: 2022/11/28 18:42:06 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ struct s_philo_gen
 	int				time_to_eat;
 	int				time_to_sleep;
 	int				philo_must_eat;
-	int				check_die;
 	t_philo			*philo;
 	pthread_t		*thread_id;
 	pthread_mutex_t	*write;

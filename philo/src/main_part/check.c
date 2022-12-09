@@ -6,7 +6,7 @@
 /*   By: lter-zak <lter-zak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 19:32:36 by lter-zak          #+#    #+#             */
-/*   Updated: 2022/11/26 20:10:19 by lter-zak         ###   ########.fr       */
+/*   Updated: 2022/11/28 17:12:34 by lter-zak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int	check_die(t_philo_gen *philo_gen, t_philo *philo)
 	while (1)
 	{
 		i = 0;
-		if (check_eat(philo_gen) == philo_gen->num_of_philo - 1)
+		if (philo_gen->philo_must_eat != 0
+			&& check_eat(philo_gen) == philo_gen->num_of_philo)
 		{
 			ft_printf("OK\n", philo);
 			return (0);
